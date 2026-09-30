@@ -1,11 +1,11 @@
-Class Habit:
+class Habit:
 
-  dif __init__(self, name, periodicity):
+  def __init__(self, name, periodicity):
     self.name = name
     self.periodicity = periodicity
     self.completed_date = []
 
-  dif complete(self, date):
+  def complete(self, date):
     self.completed_date.append(date)
 
 Leggere = Habit("Leggere","Daily")
