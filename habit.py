@@ -25,8 +25,8 @@ class db_Habit:
   def add_event(self, db, date: str = None):
     complete_habit(db, self.name, date)
 
-Leggere = Habit("Leggere","Daily")
-Leggere.complete("2026-09-30")
-print(Leggere.name)
-print(Leggere.periodicity)
-print(Leggere.completed_date)
+leggere = Habit("Leggere","Daily")
+leggere.complete("2026-09-30")
+print(leggere.name)
+print(leggere.periodicity)
+print(leggere.completed_date)
