@@ -1,4 +1,6 @@
 from db import add_habit, complete_habit
+ 
+#add docstring for all the def
 
 class Habit:
 
