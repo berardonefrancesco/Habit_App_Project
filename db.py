@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 
 def get_db(name='main.db'):
     db = sqlite3.connect(name)

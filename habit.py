@@ -1,5 +1,6 @@
 from db import add_habit, complete_habit
- 
+from datetime import datetime
+
 #add docstring for all the def
 
 class Habit:
@@ -15,11 +16,14 @@ class Habit:
   def reset(self):
     self.completed_date = []
 
+  def complete(self):
+    self.completed_date.append(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
   def __str__(self):
     return f"{self.name}: {self.completed_date}"
 
   def store(self, db):
     add_habit(db, self.name, self.periodicity)
 
-  def add_event(self, db, date: str = None):
-    complete_habit(db, self.name, date)
+  def add_event(self, db, date = None):
+    complete_habit(db, self.name, self.completed_date)
