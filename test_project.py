@@ -2,7 +2,7 @@ from habit import Habit, db_Habit
 from db import get_db, add_habit, complete_habit, get_habit_data
 from analyse import calculate_habit_len
 
-class testHabit:
+class test_Habit:
 
     def setup_method(self):
         self.db = get_db("test.db")
