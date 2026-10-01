@@ -16,7 +16,7 @@ class Habit:
     self.completed_date = []
 
   def __str__(self):
-    retunr f"{self.name}: {self.completed_date}"
+    return f"{self.name}: {self.completed_date}"
 
 class db_Habit:
   def store(self, db):

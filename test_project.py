@@ -1,5 +1,4 @@
-from Habit_App_Project import Habit
-
+from habit import Habit
 
 class testHabit:
 
@@ -8,4 +7,3 @@ class testHabit:
         habit.complete_habit()
         habit.reset()
         habit.complete_habit()
-        
