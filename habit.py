@@ -20,7 +20,7 @@ class Habit:
 
 class db_Habit:
   def store(self, db):
-    add_habit(db, self.name, self.description)
+    add_habit(db, self.name, self.periodicity)
 
   def add_event(self, db, date: str = None):
     complete_habit(db, self.name, date)

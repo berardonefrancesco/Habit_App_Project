@@ -21,7 +21,7 @@ def create_tables(db):
 
 def add_habit(db, name, description):
     cur = db.cursor()
-    cur.execute("INSERT INTO habit VALUES (?, ?)", (name, description))
+    cur.execute("INSERT INTO habit VALUES (?, ?)", (name, periodicity))
     db.commit()
 
 def complete_habit(db, name, completion_date=None):

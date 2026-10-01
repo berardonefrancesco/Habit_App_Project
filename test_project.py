@@ -6,12 +6,12 @@ class testHabit:
 
     def setup_method(self):
         self.db = get_db("test.db")
-        add_habit(self.db, "test_counter", "test_periodicity")
+        add_habit(self.db, "test_habit", "test_periodicity")
         #Here you can add test data
-        complete_habit(self.db, "test_count", "2026-09-27")
-        complete_habit(self.db, "test_count", "2026-09-28")
-        complete_habit(self.db, "test_count", "2026-09-30")
-        complete_habit(self.db, "test_count", "2026-10-01")
+        complete_habit(self.db, "test_habit", "2026-09-27")
+        complete_habit(self.db, "test_habit", "2026-09-28")
+        complete_habit(self.db, "test_habit", "2026-09-30")
+        complete_habit(self.db, "test_habit", "2026-10-01")
 
     def test_Habit(self):
         habit = Habit("test_habit_1", "test_periodicity_1")
