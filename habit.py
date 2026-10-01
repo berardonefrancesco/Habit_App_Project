@@ -9,9 +9,6 @@ class Habit:
     self.periodicity = periodicity
     self.completed_date = []
 
-  def complete(self, date):
-    self.completed_date.append(date)
-
   def reset(self):
     self.completed_date = []
 
@@ -25,7 +22,6 @@ class Habit:
     complete_habit(db, self.name, date)
 
 leggere = Habit("Leggere","Daily")
-leggere.complete("2026-09-30")
 print(leggere.name)
 print(leggere.periodicity)
 print(leggere.completed_date)

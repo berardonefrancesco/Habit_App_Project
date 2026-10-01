@@ -16,10 +16,10 @@ class Test_Habit:
     def test_Habit(self):
         habit = Habit("test_habit_1", "test_periodicity_1")
         habit.store(self.db)
-        habit.add_habit(self.db)
-        habit.complete_habit()
+        habit.add_event(self.db)
+        habit.add_event(self.db)
         habit.reset()
-        habit.complete_habit()
+        habit.add_event(self.db)
 
     def teardown_method(self):
         import os
