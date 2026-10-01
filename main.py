@@ -10,11 +10,14 @@ def cli():
     stop = False
 
     while not stop:
-        choice.questionary.select(
+        choice = questionary.select(
+            "What do you want to do?",
             choices=["Create","Complete Habit","Analyse","Exit"]
         ).ask()
-
-        name = questionary.text("What's the name of your habit?").ask()
+        if choice == "Exit":
+            pass
+        else:
+            name = questionary.text("What's the name of your habit?").ask()
 
         if choice == "Create":
             periodicity = questionary.text("What's the periodicity of your habit?").ask()
@@ -26,9 +29,11 @@ def cli():
             habit.add_event(db)
         elif choice == "Analyse":
             lenght = calculate_habit_len(db, name)
+            print(lenght)
             #Qui devo aggiungere qualcosa sullo strike come print
         else:
             print("Bye")
             stop = True
 
+if __name__ == '__main__':
     cli()
