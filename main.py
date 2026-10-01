@@ -20,11 +20,17 @@ def cli():
             name = questionary.text("What's the name of your habit?").ask()
 
         if choice == "Create":
-            periodicity = questionary.text("What's the periodicity of your habit?").ask()
+            periodicity = questionary.select(
+                "What's the periodicity of your habit?",
+                choices=["Daily","Weekly"]
+            ).ask()
             habit = Habit(name, periodicity)
             habit.store(db)
         elif choice == "Complete Habit":
-            periodicity = questionary.text("What's the periodicity of your habit?").ask()
+            periodicity = questionary.select(
+                "What's the periodicity of your habit?",
+                choices=["Daily","Weekly"]
+            ).ask()
             habit = Habit(name, periodicity)
             habit.add_event(db)
         elif choice == "Analyse":

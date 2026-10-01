@@ -4,9 +4,12 @@ from db import add_habit, complete_habit
 
 class Habit:
 
-  def __init__(self, name, periodicity):
+  def __init__(self, name, periodicity, creation_date: str = None):
     self.name = name
     self.periodicity = periodicity
+    if not creation_date:
+      creation_date=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    self.creation_date = creation_date
     self.completed_date = []
 
   def reset(self):
