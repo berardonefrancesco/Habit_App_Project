@@ -10,7 +10,7 @@ def create_tables(db):
 
     cur.execute("""CREATE TABLE if NOT EXISTS habit (
         name TEXT PRIMARY KEY,
-        description TEXT)""")
+        periodicity TEXT)""")
 
     cur.execute("""CREATE TABLE if NOT EXISTS tracker (
         date TEXT,
@@ -19,7 +19,7 @@ def create_tables(db):
 
     db.commit()
 
-def add_habit(db, name, description):
+def add_habit(db, name, periodicity):
     cur = db.cursor()
     cur.execute("INSERT INTO habit VALUES (?, ?)", (name, periodicity))
     db.commit()
