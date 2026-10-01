@@ -1,4 +1,4 @@
-from habit import Habit, db_Habit
+from habit import Habit
 from db import get_db, add_habit, complete_habit, get_habit_data
 from analyse import calculate_habit_len
 

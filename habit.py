@@ -18,7 +18,6 @@ class Habit:
   def __str__(self):
     return f"{self.name}: {self.completed_date}"
 
-class db_Habit:
   def store(self, db):
     add_habit(db, self.name, self.periodicity)
 
