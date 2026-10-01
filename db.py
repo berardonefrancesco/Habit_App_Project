@@ -27,8 +27,7 @@ def add_habit(db, name, periodicity):
 def complete_habit(db, name, completion_date=None):
     cur = db.cursor()
     if not completion_date:
-        from datetime import date
-        completion_date=str(date.today())
+            completion_date=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     cur.execute("INSERT INTO tracker VALUES (?, ?)", (completion_date, name))
     db.commit()
 
