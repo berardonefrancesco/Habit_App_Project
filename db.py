@@ -37,7 +37,12 @@ def get_habit_data(db, name):
     cur.execute("SELECT * FROM tracker WHERE habitName=?", (name,))
     return cur.fetchall()
 
-def get_habit_periodicity(db, periodicity):
+def get_specific_periodicity(db, periodicity):
     cur = db.cursor()
-    cur.execute("SELECT * FROM habit WHERE periodicity=?", (periodicity))
+    cur.execute("SELECT * FROM habit WHERE periodicity=?", (periodicity,))
+    return cur.fetchall()
 
+def get_tracker_data(db):
+    cur = db.cursor()
+    cur.execute("SELECT * FROM habit")
+    retun cur.fetchall()
