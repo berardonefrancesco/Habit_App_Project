@@ -1,5 +1,5 @@
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def get_db(name='main.db'):
     db = sqlite3.connect(name)
@@ -46,3 +46,63 @@ def get_tracker_data(db):
     cur = db.cursor()
     cur.execute("SELECT * FROM habit")
     retun cur.fetchall()
+
+from datetime import datetime, timedelta
+
+def calculate_max_streak(db):
+    cur = db.cursor()
+    cur.execute("SELECT habitName, date FROM tracker")
+    data = cur.fetchall()
+
+    habits = {}
+
+    #Grouping date per habit
+    for habit_name, date_string in data:
+        date = datetime.strptime(
+            date_string,
+            "%Y-%m-%d %H:%M:%S"
+        ).date()
+
+        if habit_name not in habits:
+            habits[habit_name] = []
+
+        habits[habit_name].append(date)
+
+    max_streak = 0
+
+    #Calculate max streak
+    for dates in habits.values():
+        dates = sorted(set(dates))
+        current_streak = 1
+        for i in range(1, len(dates)):
+            if dates[i] == dates[i - 1] + timedelta(days=1):
+                current_streak += 1
+            else:
+                current_streak = 1
+            max_streak = max(max_streak, current_streak)
+    return max_streak
+
+from datetime import datetime, timedelta
+
+
+def calculate_habit_streak(db, name):
+    data = get_habit_data(db, name)
+    dates = []
+    for habit_name, date_string in data:
+        date = datetime.strptime(
+            date_string,
+            "%Y-%m-%d %H:%M:%S"
+        ).date()
+        dates.append(date)
+    dates = sorted(set(dates))
+    if not dates:
+        return 0
+    max_streak = 1
+    current_streak = 1
+    for i in range(1, len(dates)):
+        if dates[i] == dates[i - 1] + timedelta(days=1):
+            current_streak += 1
+        else:
+            current_streak = 1
+        max_streak = max(max_streak, current_streak)
+    return max_streak
