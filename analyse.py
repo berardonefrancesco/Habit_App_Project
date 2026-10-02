@@ -9,3 +9,7 @@ def calculate_habit_len(db, habit):
     """
     data = get_habit_data(db, habit)
     return len(data)
+
+def habit_same_periodicity(db, periodicity):
+    data = get_habit_periodicity(db, periodicity)
+    return data
