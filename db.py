@@ -45,7 +45,7 @@ def get_specific_periodicity(db, periodicity):
 def get_tracker_data(db):
     cur = db.cursor()
     cur.execute("SELECT * FROM habit")
-    retun cur.fetchall()
+    return cur.fetchall()
 
 from datetime import datetime, timedelta
 
